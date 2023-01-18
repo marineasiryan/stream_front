@@ -1,0 +1,144 @@
+.heading-primary {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 70px;
+  color: $color-white;
+  &--pink{
+    color: $color-primary;
+  }
+  @include respond(laptop) {
+    font-size: 50px;
+  }
+  @include respond(phone) {
+    font-size: 30px;
+  }
+}
+
+.heading-secondary {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: $color-primary;
+
+  &--white {
+    color: $color-white;
+  }
+  &--gray {
+    color: #ada4a4;
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+  @include respond(desktop) {
+    font-size: 26px;
+    
+  }
+  @include respond(tab-land) {
+    line-height: 36px;
+  }
+  @include respond(tablet) {
+    font-size: 20px;
+
+  }
+  @include respond(phone) {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+.text-primary {
+  font-size: 20px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  line-height: 27px;
+  color: $color-white;
+
+  &--black {
+    color: $color-black;
+  }
+  &--white {
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  @include respond(tab-land) {
+    font-size: 17px;
+  }
+  @include respond(phone) {
+    font-size: 14px;
+  }
+}
+
+.text-secondary {
+  font-size: 16px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  &--white {
+    color: $color-white;
+  }
+  &--pink{
+    color: $color-primary;
+  }
+  &--gray {
+    color: #d9d9d9;
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+  @include respond(phone) {
+    font-size: 14px;
+  }
+}
+
+.text-tertiary {
+  font-size: 14px;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19px;
+  &--white {
+    color: $color-white;
+  }
+  &--gray {
+    color: #d9d9d9;
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+  @include respond(phone) {
+    font-size: 12px;
+  }
+}
+
+.btn-text-primary {
+  color: $color-white;
+  font-size: 24px;
+  font-weight: 800;
+  @include respond(tablet) {
+    font-size: 18px;
+  }
+  @include respond(phone) {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+.btn-text-secondary {
+  color: $color-white;
+  font-size: 17px;
+  font-weight: 500;
+  &:hover {
+    color: $color-primary;
+  }
+  @include respond(tablet) {
+    font-size: 15px;
+  }
+}

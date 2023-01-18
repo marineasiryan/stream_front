@@ -1,0 +1,42 @@
+.admin_card_video {
+  width: 370px;
+  background-color: #494848;
+  .card_img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:hover{
+        opacity: .6;
+    }
+  }
+  .admin_card_video-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    gap: 10px;
+    .changing_buttons{
+        display: flex;
+        gap: 10px;
+        button{
+          background: none;
+            display: flex;
+            cursor: pointer;
+            border: none;
+            svg{
+              fill: $color-white;
+                width: 26px;
+                height: 26px;
+                &:hover{
+                  fill: $color-primary;
+                }
+            }
+        }
+    }
+  }
+}

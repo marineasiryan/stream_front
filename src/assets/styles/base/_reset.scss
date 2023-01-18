@@ -1,0 +1,64 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #181818;
+}
+p,
+h2,
+h1,
+h3 {
+  margin-bottom: 0 !important;
+}
+
+.ant-popover-title {
+  border-bottom: 2px solid rgb(214 0 201 / 31%) !important;
+  padding: 14px !important;
+}
+.ant-popover-inner {
+  margin-top: 14px;
+  background-color: #202020 !important;
+  border-radius: 14px !important;
+}
+.ant-popover-arrow-content {
+  --antd-arrow-background-color: #202020 !important;
+}
+
+.ytp-pause-overlay {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+.MuiSlider-root {
+  color: #72ffea !important;
+}
+
+.admin_active_tab {
+  border-bottom: 4px solid $color-primary;
+  border-radius: 4px;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.ant-input,
+.ant-input-affix-wrapper , .ant-select-selector{
+  font-size: 16px;
+  padding: 10px 14px;
+  background-color: #fbfbfb;
+  border-radius: 6px;
+  outline: none;
+}
+.ant-modal-content {
+  margin: 20px !important;
+}

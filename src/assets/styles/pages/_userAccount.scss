@@ -1,0 +1,40 @@
+.user_info {
+  display: flex;
+  gap: 8px;
+  &-image {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 5px;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+}
+.user_profil {
+  a,
+  .log_out {
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    span {
+      display: flex;
+      padding-right: 8px;
+    }
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    color: $color-primary;
+  }
+}
+._popover {
+  display: flex;
+}

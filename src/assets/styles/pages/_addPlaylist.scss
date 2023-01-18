@@ -1,0 +1,35 @@
+.admin_playlist
+ {
+  padding: 0 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  button {
+    margin: 0 auto;
+    height: auto;
+    &:focus,
+    &:hover,
+    &:active {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+  .admin_playlist_cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @include respond(desktop-L) {
+    padding: 0 100px;
+  }
+  @include respond(desktop) {
+    padding: 0 45px;
+  }
+  @include respond(tab-land) {
+    padding: 0 25px;
+  }
+  @include respond(laptop) {
+    padding: 0 18px;
+  }
+}

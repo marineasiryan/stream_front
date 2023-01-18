@@ -1,0 +1,15 @@
+.tabs {
+  padding: 3% 0;
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+
+  }
+}
+.active::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: $color-primary;
+}

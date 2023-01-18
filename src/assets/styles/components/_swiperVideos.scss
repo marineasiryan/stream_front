@@ -1,0 +1,25 @@
+.main-playlists {
+  .playlist-title {
+    margin: 20px 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include respond(tablet){
+      margin: 10px 0 20px;
+    }
+  }
+}
+.swiper-slide {
+  width: 400px !important;
+  height: 340px;
+  @include respond(phone){
+    height: 300px;
+  }
+}
+.swiper-pagination {
+  margin-top: 20px !important;
+  .swiper-pagination-bullet {
+    margin-top: 20px;
+    background: $color-secondary;
+  }
+}

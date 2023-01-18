@@ -1,0 +1,32 @@
+.user_register_form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .btn-primary {
+    height: auto;
+    margin: 0 auto;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+  .modal_image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background-color: rgb(220, 242, 245);
+    margin: 0 auto;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    @include respond(tablet){
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

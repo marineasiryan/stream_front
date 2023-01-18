@@ -1,0 +1,29 @@
+.existing_videos {
+  text-align: center;
+  padding: 60px 190px;
+  .btn-primary {
+    margin-top: 40px;
+  }
+  .secondary-card {
+    @include respond(tab-land) {
+      flex-direction: column;
+    }
+  }
+  @include respond(desktop-L) {
+    padding: 60px 100px;
+  }
+  @include respond(desktop) {
+    padding: 60px 45px;
+  }
+  @include respond(tab-land) {
+    padding: 40px 25px;
+  }
+  @include respond(laptop) {
+    padding: 30px 20px;
+  }
+  .existing_videos_cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}

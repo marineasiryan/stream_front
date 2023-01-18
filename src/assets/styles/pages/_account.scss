@@ -1,0 +1,106 @@
+.account {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 140px;
+  &-left_sec {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .img_part {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+      padding-top: 60px;
+
+      .pic {
+        width: 260px;
+        height: 260px;
+        overflow: hidden;
+        border-radius: 50%;
+        background-color: #fff;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        @include respond(tablet) {
+          width: 180px;
+          height: 180px;
+        }
+        @include respond(phone) {
+          width: 120px;
+          height: 120px;
+        }
+      }
+      label{
+        text-align: center;
+      }
+      @include respond(tab-land) {
+        flex-direction: row;
+        justify-content: center;
+        padding: 40px;
+      }
+      @include respond(phone) {
+        gap: 10px;
+        padding: 30px 10px;
+      }
+    }
+  }
+  &-right_sec {
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 60px;
+      .form_item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .btn-primary {
+        margin-top: 20px;
+      }
+      @include respond(tab-land) {
+        align-items: center;
+      }
+    }
+  }
+  @include respond(desktop) {
+    padding: 0px;
+  }
+  @include respond(tab-land) {
+    width: 100%;
+    flex-direction: column;
+    padding: 0 ;
+  }
+}
+
+.changing_settings {
+  width: 82%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  padding: 50px 0;
+  button {
+    height: auto;
+    &:hover {
+      border-color: $color-primary;
+    }
+    &:focus {
+      color: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+  @include respond(tab-land) {
+    margin: 0 auto;
+    justify-content: center;
+  }
+  @include respond(phone) {
+    flex-direction: column;
+    align-items: center;
+  }
+}

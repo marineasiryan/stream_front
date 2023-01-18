@@ -1,0 +1,22 @@
+.existing_video {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 20px;
+  // .container {
+  //   margin: 0;
+  // }
+  @include respond(desktop-L) {
+    padding: 0 100px;
+  }
+  @include respond(desktop) {
+    padding: 0 45px;
+  }
+  @include respond(tab-land) {
+    padding: 0 25px;
+  }
+  @include respond(laptop) {
+    padding: 0 18px;
+  }
+}

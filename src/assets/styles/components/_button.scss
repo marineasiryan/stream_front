@@ -1,0 +1,81 @@
+.btn {
+  background: none;
+  outline: none;
+  cursor: pointer;
+  &-primary {
+    text-align: center;
+    color: $color-white;
+    background-color: $color-primary;
+    padding: 2px 0;
+    border: 3px solid $color-primary;
+    width: 300px;
+    border-radius: 30px;
+    &:hover {
+      background-color: transparent;
+      color: $color-primary;
+    }
+    @include respond(tablet) {
+      width: 180px;
+    }
+    @include respond(phone) {
+      width: 140px;
+      padding: 0;
+    }
+  }
+
+  &-secondary {
+    color: $color-white;
+    background-color: rgba(214, 0, 201, 0.12);
+    padding: 2px 0;
+    border: 3px solid $color-primary;
+    width: 200px;
+    border-radius: 30px;
+    &:hover{
+      background-color: $color-primary;
+    }
+    @include respond(tablet) {
+      width: 160px;
+    }
+    @include respond(phone) {
+      width: 100px;
+      padding: 0;
+    }
+  }
+
+  &-header {
+    padding: 4px 12px;
+    background-color: $color-primary;
+    border-radius: 20px;
+    border: 2px solid $color-primary;
+    
+    &:hover {
+      background-color: #fff;
+      color: $color-primary;
+      .text-primary-color_prim {
+        color: $color-primary;
+      }
+    }
+  }
+}
+.btn-hero{
+  background:linear-gradient(263.33deg, #D600C9 6.69%, #72FFEA 100%); 
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+transition: all 1s;
+  &--main{
+    width: 180px;
+    height: 80px;
+  }
+  &--secondary{
+    width: 177px;
+    height: 64px;
+  }
+  &:hover{
+   background: $color-primary;
+
+  }
+  
+}

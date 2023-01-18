@@ -1,0 +1,16 @@
+.paths {
+  padding: 20px 190px;
+
+  @include respond(desktop-L) {
+    padding: 20px 100px;
+  }
+  @include respond(desktop) {
+    padding: 20px 45px;
+  }
+  @include respond(tab-land) {
+    padding: 20px 25px;
+  }
+  @include respond(laptop) {
+    padding: 20px 20px;
+  }
+}

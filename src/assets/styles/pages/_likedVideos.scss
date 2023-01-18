@@ -1,0 +1,34 @@
+.likedVideos{
+    padding: 0 190px;
+    .secondary-card{
+      padding-bottom: 40px;
+      .secondary-card-info{
+        width: 60%;
+        @include respond(laptop) {
+            width: 100%;
+            text-align: center;
+            margin-left: 0;
+            gap: 0;
+          }
+      }
+      @include respond(laptop) {
+        flex-direction: column;
+        padding: 40px 0;
+      }
+    }
+    @include respond(desktop-L) {
+      padding: 0 100px;
+    }
+    @include respond(desktop) {
+      padding: 0 45px;
+    }
+    @include respond(tab-land) {
+      padding: 0 25px;
+    }
+    @include respond(laptop) {
+      padding: 0 20px;
+    }
+    @include respond(tablet) {
+      padding: 0 16px;
+    }
+  }

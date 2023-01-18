@@ -1,0 +1,51 @@
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+.Utilities {
+  position: absolute;
+  top: -9999rem;
+  left: -9999rem;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -9999;
+}
+
+.input_error {
+  border-color: rgba(255, 0, 0, 0.9);
+}
+.err_message {
+  font-size: 14px;
+  color: rgba(255, 0, 0, 0.9);
+}
+a{
+  &:hover{
+    color: $color-primary;
+  }
+}
+.line-long{
+  height: 4px;
+  background-color: #d600c9;
+  border-radius: 2px;
+  &--margin{
+    margin:0 auto;
+
+    @include respond(desktop-L){
+      margin: 0 100px;
+    }
+    @include respond(desktop){
+      margin: 0 45px;
+    }
+    @include respond(tab-land){
+      margin: 0 25px;
+    }
+    @include respond(laptop){
+      margin: 0 20px;
+    }
+    @include respond(tablet){
+      margin: 0 16px;
+    }
+  }
+
+}

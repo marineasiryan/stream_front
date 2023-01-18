@@ -1,0 +1,41 @@
+.playlist_videos {
+  padding: 60px 190px;
+
+  .heading-secondary {
+    text-align: center;
+  }
+  .playlist-videos-btn {
+    justify-content: center;
+    display: flex;
+    gap: 30px;
+    padding: 40px 20px 60px;
+    button {
+      height: auto;
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: $color-primary;
+        color: $color-primary;
+      }
+    }
+  }
+
+  .playlist_video_cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @include respond(desktop-L) {
+    padding: 60px 100px;
+  }
+  @include respond(desktop) {
+    padding: 60px 45px;
+  }
+  @include respond(tab-land) {
+    padding: 40px 25px;
+  }
+  @include respond(laptop) {
+    padding: 30px 18px;
+  }
+}

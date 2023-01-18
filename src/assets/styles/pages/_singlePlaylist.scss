@@ -1,0 +1,64 @@
+.backgroung-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .btn-hero {
+    position: absolute;
+    bottom: 30px;
+    left: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include respond(desktop-L) {
+      left: 100px;
+    }
+    @include respond(desktop) {
+      left: 45px;
+    }
+    @include respond(tab-land) {
+      left: 25px;
+    }
+    @include respond(laptop) {
+      left: 20px;
+    }
+    @include respond(tablet) {
+      left: 16px;
+      width: 130px;
+      height: 50px;
+    }
+    @include respond(phone) {
+      width: 100px;
+      height: 40px;
+    }
+  }
+}
+.single-playlist {
+  padding: 40px 190px;
+  .single-playlist-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @include respond(desktop-L) {
+    padding: 11px 100px;
+  }
+  @include respond(desktop) {
+    padding: 11px 45px;
+  }
+  @include respond(tab-land) {
+    padding: 11px 25px;
+  }
+  @include respond(laptop) {
+    padding: 11px 20px;
+  }
+  @include respond(tablet) {
+    padding: 11px 16px;
+  }
+}

@@ -1,0 +1,95 @@
+.video_info {
+  padding: 0 190px;
+  // padding: 0 190px 64px;
+  &-title {
+    margin: 30px 0 0;
+    display: flex;
+    justify-content: space-between;
+    .video-name {
+      width: 80%;
+    }
+    .view {
+      @include ABSFLEX;
+      background-color: #2e2e2e;
+      margin-left: 40px;
+      width: 156px;
+      height: 42px;
+      border-radius: 30px;
+      svg {
+        margin-left: 10px;
+        cursor: pointer;
+        width: 30px;
+        height: 28px;
+        fill: $color-primary;
+      }
+      @include respond(phone) {
+        margin-left: 20px;
+      }
+    }
+  }
+  .video-description {
+    margin: 40px 0;
+    width: 100%;
+    background-color: #2e2e2e;
+    border-radius: 30px;
+    padding: 20px 40px;
+    .content-description {
+      span {
+        color: $color-white;
+        font-size: 16px;
+      }
+      .show-more-less-clickable {
+        color: $color-primary;
+      }
+      .link-description {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        .links {
+          span {
+            color: $color-secondary;
+          }
+        }
+      }
+    }
+    @include respond(phone) {
+      padding: 10px 16px;
+    }
+  }
+  @include respond(desktop-L) {
+    padding: 0 100px;
+  }
+  @include respond(desktop) {
+    padding: 0 45px;
+  }
+  @include respond(tab-land) {
+    padding: 0 25px;
+  }
+  @include respond(laptop) {
+    padding: 0 20px;
+  }
+  @include respond(tablet) {
+    padding: 0 16px;
+  }
+}
+.videos_block_player {
+  padding: 0 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @include respond(desktop-L) {
+    padding: 0 100px;
+  }
+  @include respond(desktop) {
+    padding: 0 45px;
+  }
+  @include respond(tab-land) {
+    padding: 0 25px;
+  }
+  @include respond(laptop) {
+    padding: 0 20px;
+  }
+  @include respond(tablet) {
+    padding: 0 16px;
+  }
+}
