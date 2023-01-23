@@ -1,12 +1,28 @@
+.admin_videos{
+  display: flex;
+  flex-direction: column;
+  .btn-addVideo{
+margin:  0 auto 40px;
+  }
+  .heading-secondary{
+    text-align: center;
+    padding: 40px;
+  }
 .existing_video {
+  padding: 0 190px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40px;
+  // margin-top: 40px;
   gap: 20px;
   // .container {
   //   margin: 0;
   // }
+//   .secondary-card-info{
+//     .text-primary{
+// width: 100%;
+//     }
+//   }
   @include respond(desktop-L) {
     padding: 0 100px;
   }
@@ -19,4 +35,5 @@
   @include respond(laptop) {
     padding: 0 18px;
   }
+}
 }

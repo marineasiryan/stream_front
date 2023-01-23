@@ -19,17 +19,13 @@ const Log_In = () => {
   const activateUser = async () => {
     try {
       await activateAccount(hash);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const activateUserOnChangeEmail = async () => {
     try {
       await activateChangeEmail(hash, email);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   const onSubmit = async (values, actions) => {
@@ -165,9 +161,9 @@ const Log_In = () => {
             </span>
           </button> */}
         </div>
-        <p className="no_account text-primary">
+        {/* <p className="no_account text-primary">
           No account ? <Link to="/sign_up">Sign up</Link>
-        </p>
+        </p> */}
       </form>
     </>
   );

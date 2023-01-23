@@ -3,22 +3,36 @@
   flex-direction: column;
   gap: 40px;
   .btn-addUser {
-  margin: 40px auto ;
+    margin: 40px auto;
   }
-  .singleUserCards{
+  .singleUserCards {
     padding: 0 190px;
   }
-  .user_card{
+  .user_card {
     background: rgb(84, 82, 82);
     border: 2px solid gray;
     border-radius: 10px;
-    padding: 10px ;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
     cursor: pointer;
-    &:hover{
-        background-color: gray;
+    &:hover {
+      background-color: gray;
     }
   }
 }
+// deletePlaylistVideoHandler
+
+// const { _getPlaylistVideos, _getPlaylistById } = useVideos();
+// const location = useLocation();
+// const id = location.pathname.split("playlist/")[1];
+
+// const playlistVideos = useSelector((state) => state.playlistVideos);
+// const playlist = useSelector((state) => state.playlistInfo);
+
+//og("playlistt",playlist);
+// useEffect(() => {
+//   _getPlaylistVideos(id);
+//   _getPlaylistById(id);
+// }, []);

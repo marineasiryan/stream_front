@@ -16,7 +16,6 @@ const Password_Reset = () => {
         { newPass: values.password, confirmPass: values.confirm_password },
         hash
       );
-      console.log(res.data.message);
 
       message.success(res.data.message);
     } catch (err) {

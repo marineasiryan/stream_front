@@ -7,8 +7,11 @@ const Add = ({ id }) => {
   const { addExistingVideoToPlaylist } = useVideos();
   return (
     <button
-      className="btn btn-header"
-      onClick={() => addExistingVideoToPlaylist(addedData, id)}
+      className="btn-primary btn-text-primary "
+      onClick={() =>
+         addExistingVideoToPlaylist(addedData, id)
+         
+        }
     >
       Add
     </button>

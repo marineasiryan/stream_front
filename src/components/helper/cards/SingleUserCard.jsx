@@ -7,7 +7,7 @@ const SingleUserCard = ({ firstName, email, id }) => {
   const userInfo = useSelector((state) => state?.user);
   // const userCurData = userInfo?.user;
 
-  // console.log("userCurData", userCurData);
+  //
 
   return (
     <>

@@ -29,7 +29,7 @@
 //   const { _getPathPlaylists } = useVideos();
 
 //   const onSubmit = async (values, actions) => {
-//     console.log("valuesssssss", values);
+//
 //     try {
 //       await createPlayList(
 //         {

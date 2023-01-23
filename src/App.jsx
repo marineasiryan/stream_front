@@ -123,8 +123,6 @@ function App() {
             }
           /> */}
 
-          
-
           <Route
             path="/admin/dashboard/user/register"
             element={
@@ -193,12 +191,12 @@ function App() {
           }
         />
         <Route path="/userInAdmin" element={<UserInAdmin />}>
-            <Route path="/userInAdmin/user/:id" element={<UserAccount />} />
-            <Route
-              path="/userInAdmin/paymentHistory"
-              element={<PaymentHistory />}
-            />
-          </Route>
+          <Route path="/userInAdmin/user/:id" element={<UserAccount />} />
+          <Route
+            path="/userInAdmin/paymentHistory"
+            element={<PaymentHistory />}
+          />
+        </Route>
 
         <Route path="/login" element={<LogIn />} />
         <Route path="/activate" element={<LogIn />} />
@@ -210,9 +208,9 @@ function App() {
           <Route path="/profile/likedvideos" element={<LikedVideos />} />
         </Route>
 
-        <Route path="/singlePlaylist" element={<SinglePlaylist />} />
+        <Route path="/singlePlaylist/:id" element={<SinglePlaylist />} />
 
-        <Route path="/videoPlayer" element={<VideoPlayer />} />
+        <Route path="/videoPlayer/:id" element={<VideoPlayer />} />
         <Route path="/password_forgot" element={<Password_Forgot />} />
         <Route path="/reset-password" element={<Password_Reset />} />
 

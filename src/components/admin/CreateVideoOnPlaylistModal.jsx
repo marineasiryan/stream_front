@@ -24,7 +24,6 @@ const CreateVideoOnPlaylistModal = () => {
   const { _getPlaylistVideos } = useVideos();
 
   const onSubmit = async (values, actions) => {
-    console.log("values", values);
     try {
       await createVideo(
         {

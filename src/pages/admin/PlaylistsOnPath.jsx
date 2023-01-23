@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { v4 } from "uuid";
+import AdminHeader from "../../components/admin/AdminHeader";
 import CardPlaylist from "../../components/admin/CardPlaylist";
 import DeletePathPlaylist from "../../components/admin/DeletePathPlaylist";
 // import CardPlaylistOnPath from "../../components/admin/CardPlaylistOnPath";
@@ -10,30 +11,32 @@ import useVideos from "../../components/admin/useVideos";
 import ExistingPlaylistCard from "../../components/helper/cards/ExistingPlaylistCard";
 
 const PlaylistOnPath = () => {
-  const { _getPathPlaylists } = useVideos();
+  const { _getPathPlaylists, _getPathById} = useVideos();
   const location = useLocation();
   const pathPlaylists = useSelector((state) => state.pathPlaylists);
   const id = location.pathname.split("path/")[1];
-console.log("pathPlaylists",pathPlaylists);
+  const path = useSelector((state) => state.pathInfo);
+
 
   useEffect(() => {
     _getPathPlaylists(id);
-    
+    _getPathById(id)
   }, []);
-
 
   return (
     <div className="playlist_videos container">
-      {/* <h2 className="heading-secondary">Add new playlist</h2> */}
+      <AdminHeader/>
+
+      <h2 className="heading-secondary">{path.title}</h2>
       <div className="playlist-videos-btn">
         {/* <CreatePlaylistOnPathModal /> */}
         <Link
-         to={`/admin/dashboard/path/${id}/existingPlaylists`}
+          to={`/admin/dashboard/path/${id}/existingPlaylists`}
           className="btn-primary btn-text-primary"
         >
-          Add playlists 
+          Add playlists
         </Link>
-      <DeletePathPlaylist id={id}/>
+        <DeletePathPlaylist id={id} />
 
         {/* <button className="btn btn-header" 
         // onClick={()=>deletePlaylistVideosHandler(id)

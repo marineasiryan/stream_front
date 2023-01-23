@@ -7,7 +7,7 @@ const AddPlaylist = ({ id }) => {
   const { addExistingPlaylistToPath } = useVideos();
   return (
     <button
-      className="btn btn-header"
+      className="btn-primary btn-text-primary"
       onClick={() => addExistingPlaylistToPath(addedData, id)}
     >
       Add

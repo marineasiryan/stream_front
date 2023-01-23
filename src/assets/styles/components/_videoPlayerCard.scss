@@ -1,7 +1,19 @@
-.videoPlayer-card{
-    display: flex;
-    align-items: flex-end;
-    p{
-        padding: 30px 30px 20px;
-    }
+.videoPlayer-card {
+  display: flex;
+  align-items: flex-end;
+  .secondary-card-img{
+    width: 370px;
+  }
+  .text-primary--white {
+    padding: 30px 30px 20px;
+    width: 50%;
+    @include respond(tablet) {
+       width: 100%;
+       padding: 30px 30px 20px 0;
+      }
+  }
+  @include respond(tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

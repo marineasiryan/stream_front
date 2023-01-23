@@ -8,7 +8,7 @@ const UserDataForm = () => {
   const auth = useSelector((state) => state?.auth);
   const token = auth?.token;
   const userInfo = useSelector((state) => state?.user);
-  // console.log("userInfo", userInfo);
+  //
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -22,7 +22,6 @@ const UserDataForm = () => {
   );
   const userCurrentData = async () => {
     try {
-      console.log("user cur data", userCurData);
       const res = await getUserById(params.id, token);
       if (res.data) {
         setUserCurData(res.data);

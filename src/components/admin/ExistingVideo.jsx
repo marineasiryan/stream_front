@@ -5,23 +5,29 @@ import ExistingVideoCard from "../helper/cards/ExistingVideoCard";
 import useVideos from "./useVideos";
 import Add from "../../components/admin/Add";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 const ExistingVideo = () => {
-  const { getVideos } = useVideos();
+  const { getVideos,_getPlaylistById } = useVideos();
   const location = useLocation();
   const path = location.pathname.split("playlist/")[1];
   const id = path.split("/")[0];
 
   const videos = useSelector((state) => state.videos);
-  console.log(videos);
 
+  const playlist = useSelector((state) => state.playlistInfo);
+
+  
   useEffect(() => {
     getVideos();
+    _getPlaylistById(id);
+
   }, []);
 
   return (
-    <>
-      <Add id={id} />
+    <div className="admin_videos container">
+     <h2 className="heading-secondary">Select videos to add {playlist.title} playlist</h2>
+      <Link to={`/admin/dashboard/playlist/${id}`} className="btn-addVideo"><Add id={id} /> </Link>
 
       <div className="existing_video">
         {videos && videos.length ? (
@@ -39,7 +45,7 @@ const ExistingVideo = () => {
           <div>NOvu</div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

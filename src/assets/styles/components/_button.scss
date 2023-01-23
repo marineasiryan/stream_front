@@ -51,7 +51,7 @@
     &:hover {
       background-color: #fff;
       color: $color-primary;
-      .text-primary-color_prim {
+      .btn-text-secondary {
         color: $color-primary;
       }
     }
@@ -73,9 +73,9 @@ transition: all 1s;
     width: 177px;
     height: 64px;
   }
-  &:hover{
-   background: $color-primary;
+  // &:hover{
+  //  background: $color-primary;
 
-  }
+  // }
   
 }

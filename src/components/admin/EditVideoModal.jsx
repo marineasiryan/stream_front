@@ -10,7 +10,6 @@ import { useLocation } from "react-router";
 import { AddVideoSchema } from "../../schemas";
 
 const EditVideoModal = () => {
-  console.log("mta Edit");
   const { auth } = useSelector((state) => ({ ...state }));
   const location = useLocation();
 
@@ -34,7 +33,6 @@ const EditVideoModal = () => {
   const { isModalOpen, handleCancelVideo } = useModal();
 
   const onSubmit = async (actions) => {
-    console.log("mi ban");
     try {
       await updateVideoById(
         data,

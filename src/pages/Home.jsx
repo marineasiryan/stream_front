@@ -13,7 +13,7 @@ const Home = () => {
   const GetUserInfo = async () => {
     try {
       const res = await getUserById(userData?.id, auth?.token);
-      console.log(res.data);
+      //
       if (res.data) {
         window.localStorage.setItem("userInfo", JSON.stringify(res.data));
         dispatch({ type: "SAVE_USER_INFO", payload: res.data });
@@ -28,9 +28,14 @@ const Home = () => {
 
   return (
     <>
-      <Hero_section />
-      <Main />
-      
+      {auth && auth.token ? (
+        <>
+          <Hero_section />
+          <Main />
+        </>
+      ) : (
+        <Hero_section />
+      )}
     </>
   );
 };

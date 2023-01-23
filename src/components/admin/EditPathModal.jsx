@@ -9,12 +9,10 @@ import { getPathById, updatePathById } from "../../api/videos/video";
 import { useLocation } from "react-router";
 
 const EditPathModal = () => {
-  console.log("mta Edit path");
   const { auth } = useSelector((state) => ({ ...state }));
   const location = useLocation();
 
   const [preview, setPreview] = useState();
-  console.log(preview);
   const [imgFile, setImageFile] = useState(null);
   const [data, setData] = useState(null);
 
@@ -25,7 +23,6 @@ const EditPathModal = () => {
         auth.token
         
       );
-      console.log("path data", res.data);
 
       setPreview(res.data.image);
       delete res.data.image;

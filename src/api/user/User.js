@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getUserById = async (id, token) => {
-  return await axios.get(`${import.meta.env.VITE_APP_API}/users/${id}`, {
+export const getUserById = async (userId, token) => {
+  return await axios.get(`${import.meta.env.VITE_APP_API}/api/users/${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -9,24 +9,23 @@ export const getUserById = async (id, token) => {
 };
 
 export const getUsers = async (token) => {
-  return await axios.get(`${import.meta.env.VITE_APP_API}/users`, {
+  return await axios.get(`${import.meta.env.VITE_APP_API}/api/users`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const updateUser = async (data, id, token) => {
-  console.log(data);
-  return await axios.patch(`${import.meta.env.VITE_APP_API}/users/${id}`, data, {
+export const updateUser = async (data, userId, token) => {
+  return await axios.patch(`${import.meta.env.VITE_APP_API}/api/users/${userId}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const updateEmail = async (data, id, token) =>
-  await axios.post(`${import.meta.env.VITE_APP_API}/users/reset-email/${id}`, data, {
+export const updateEmail = async (data, userId, token) =>
+  await axios.post(`${import.meta.env.VITE_APP_API}/api/users/reset-email/${userId}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -34,15 +33,15 @@ export const updateEmail = async (data, id, token) =>
 
 export const activateChangeEmail = async (hash, email) =>
   await axios.patch(
-    `${import.meta.env.VITE_APP_API}/users/activate`,
+    `${import.meta.env.VITE_APP_API}/api/users/activate`,
     {},
     {
       params: { hash, email },
     }
   );
 
-export const updatePassword = async (data, id, token) =>
-  await axios.patch(`${import.meta.env.VITE_APP_API}/users/reset-pass/${id}`, data, {
+export const updatePassword = async (data, userId, token) =>
+  await axios.patch(`${import.meta.env.VITE_APP_API}/api/users/reset-pass/${userId}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

@@ -5,10 +5,9 @@ import useVideos from "./useVideos";
 const DeletePathPlaylist = ({ id }) => {
   const { deletePathPlaylistsHandler } = useVideos();
   const deletedData = useSelector((state) => state.playlistid);
-console.log(deletedData);
   return (
     <button
-      className="btn btn-header"
+      className="btn-primary btn-text-primary"
       onClick={() => deletePathPlaylistsHandler(deletedData, id)}
     >
       Delete

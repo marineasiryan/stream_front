@@ -16,7 +16,9 @@ const UserDataForm = () => {
   const [userImage, setUserImage] = useState(undefined);
   const [removeImg, setRemoveImg] = useState(false);
   const [preview, setPreview] = useState(
-    userInfo.image ? userInfo.image : "http://via.placeholder.com/300?text=A.S"
+    userInfo.image
+      ? `${userInfo.image}`
+      : "http://via.placeholder.com/300?text=A.S"
   );
   const userCurrentData = async () => {
     try {
@@ -66,10 +68,10 @@ const UserDataForm = () => {
       removeImg && formdata.append("image", "delete");
       userImage !== undefined && formdata.append("image", userImage?.image);
 
-      const res = await updateUser(formdata, params.id, token);
+       await updateUser(formdata, params.id, token);
       message.success("Your changes have been successfully saved");
     } catch (err) {
-      message.error(err.response.data.message);
+      message.error(err.message);
     }
   };
 

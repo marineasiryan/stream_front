@@ -5,7 +5,7 @@ import { v4 } from "uuid";
 const History = () => {
 
   return <div className="history">
-
+ <p>Coming Soon </p>
 
 {/* {[...Array(10)].map((i) => {
             return (

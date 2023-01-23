@@ -23,10 +23,9 @@ const ChangingPassword = () => {
   };
 
   const onSubmit = async (values, actions) => {
-    console.log(values);
     try {
       const res = await updatePassword(values, id, auth.token);
-      console.log("res dartaaaaaaaaa", res.data);
+
       message.success(res.data.message);
     } catch (err) {
       message.error("Something went wrong", err.response);

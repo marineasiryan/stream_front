@@ -8,7 +8,7 @@ const DeleteVideo = ({id}) => {
 
   return (
     <button
-      className="btn btn-header"
+      className="btn-primary btn-text-primary"
       onClick={() => _deleteSelectedVideos(deletedData, id)}
     >
       Delete

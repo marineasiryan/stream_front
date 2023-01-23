@@ -6,6 +6,7 @@ import { v4 } from "uuid";
 const LikedVideos = () => {
   return (
     <div className="likedVideos">
+      <p>Coming Soon</p>
       {/* {[...Array(2)].map((i) => {
         return (
           <SecondaryCard

@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import MainCardRecent from "../helper/cards/MainCardRecent";
 
 const SwiperRecent = ({ data }) => {
-  // console.log(data);
   return (
     <div className="main-playlists">
       <div className="playlist-title">
@@ -30,9 +29,9 @@ const SwiperRecent = ({ data }) => {
           invert: true,
         }}
         // loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         navigation={true}
         modules={[Pagination, Navigation]}
       >
@@ -46,6 +45,9 @@ const SwiperRecent = ({ data }) => {
                   link={item.link.split("v=")}
                   videoLink={item.link}
                   description={item.description}
+                  topic={item.topic}
+                  materials={item.materials}
+                  playlistId={item.playlists[0]}
                 />
               </SwiperSlide>
             );

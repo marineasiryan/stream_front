@@ -7,7 +7,7 @@ const DeletePlaylistVideo = ({ id }) => {
   const deletedData = useSelector((state) => state.videoid);
   return (
     <button
-      className="btn btn-header"
+      className="btn-primary btn-text-primary"
       onClick={() => deletePlaylistVideosHandler(deletedData, id)}
     >
       Delete

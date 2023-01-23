@@ -2,6 +2,9 @@ export const PlaylistsIdReducer = (state = [], action) => {
   if (action.type === "SET_PLAYLIST_ID") {
     return [...state, action.payload];
   }
+  if(action.type === "RESET_PLAYLIST_ID"){
+    return [];
+  }
   if (action.type === "DELETE_PLAYLIST_ID") {
     const playlistid = state.filter((item) => item !== action.payload);
     return [...playlistid];

@@ -11,7 +11,7 @@ const Password_Forgot = () => {
       const res = await forgotPassword({
         email: values.email,
       });
-      console.log(res.data.message);
+
       message.success(res.data.message);
     } catch (err) {
       message.error("Something went wrong", err.response);

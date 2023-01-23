@@ -30,7 +30,6 @@ const ChangingEmail = () => {
     try {
       const res = await updateEmail(values, id, auth.token);
       message.success(res.data.message);
-      console.log("res dartaaaaaaaaa", res.data.message);
     } catch (err) {
       message.error("Something went wrong", err.response);
     }

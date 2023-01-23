@@ -6,11 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const User_Account = () => {
   const userInfo = useSelector((state) => state?.user);
-  // console.log("user info", userInfo);
-
-  // const userCurData = userInfo?.user;
-// console.log("userCurData", userInfo);
   const dispatch = useDispatch();
+  console.log(userInfo);
 
   const logOut = (e) => {
     e.preventDefault;
@@ -20,11 +17,13 @@ const User_Account = () => {
     });
     window.localStorage.clear();
   };
+
   const text = (
     <div className="user_info">
       <div className="user_info-image">
         <Link to={`/profile/account/${userInfo?._id}`}>
-          <img src="https://www.blexar.com/avatar.png" />
+          {userInfo.image ? <img src={userInfo?.image}/> : <img src="http://via.placeholder.com/300?text=A.S"/>}
+          {/* <img src={userInfo?.image} /> */}
         </Link>
       </div>
       <div className="user_info-text">
@@ -33,7 +32,7 @@ const User_Account = () => {
           to={`/profile/account/${userInfo?._id}`}
         >
           {userInfo?.firstName}
-          <br/>
+          <br />
           {userInfo?.lastName}
         </Link>
       </div>
@@ -48,14 +47,20 @@ const User_Account = () => {
         </span>
         History
       </Link>
-      <Link className="text-tertiary text-tertiary--gray" to="profile/likedVideos">
+      <Link
+        className="text-tertiary text-tertiary--gray"
+        to="profile/likedVideos"
+      >
         <span>
           <BiHeart />
         </span>
         Liked videos
       </Link>
 
-      <div onClick={logOut} className="log_out text-tertiary text-tertiary--gray">
+      <div
+        onClick={logOut}
+        className="log_out text-tertiary text-tertiary--gray"
+      >
         <span>
           <BiLogOut />
         </span>
@@ -64,7 +69,7 @@ const User_Account = () => {
     </div>
   );
 
-  return (
+  return userInfo ? (
     <div className="_popover">
       <Popover
         placement="bottomRight"
@@ -75,6 +80,8 @@ const User_Account = () => {
         <BiUserCircle />
       </Popover>
     </div>
+  ) : (
+    <></>
   );
 };
 

@@ -1,5 +1,5 @@
 .playlist_videos {
-  padding: 60px 190px;
+  padding: 0 190px;
 
   .heading-secondary {
     text-align: center;
@@ -25,17 +25,18 @@
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 60px;
   }
   @include respond(desktop-L) {
-    padding: 60px 100px;
+    padding: 0 100px;
   }
   @include respond(desktop) {
-    padding: 60px 45px;
+    padding: 0 45px;
   }
   @include respond(tab-land) {
-    padding: 40px 25px;
+    padding: 0 25px;
   }
   @include respond(laptop) {
-    padding: 30px 18px;
+    padding: 0 18px;
   }
 }

@@ -5,23 +5,29 @@ import { v4 } from "uuid";
 // import CardVideoOnPlaylist from "../../components/admin/CardVideoOnPlaylist";
 import CreateVideoOnPlaylistModal from "../../components/admin/CreateVideoOnPlaylistModal";
 import useVideos from "../../components/admin/useVideos";
-import CardVideo from "../../components/admin/CardVideo";
 import DeletePlaylistVideo from "../../components/admin/DeletePlaylistVideo";
+import AdminHeader from "../../components/admin/AdminHeader";
+import CardVideoOnPlaylist from "../../components/admin/CardVideoOnPlaylist";
 
 const VideosOnPlaylist = () => {
-  const { _getPlaylistVideos, deletePlaylistVideoHandler } = useVideos();
+  
+  const { _getPlaylistVideos, _getPlaylistById } = useVideos();
   const location = useLocation();
-  const playlistVideos = useSelector((state) => state.playlistVideos);
   const id = location.pathname.split("playlist/")[1];
-  console.log("playlistVideos",playlistVideos);
+
+  const playlistVideos = useSelector((state) => state.playlistVideos);
+  const playlist = useSelector((state) => state.playlistInfo);
 
   useEffect(() => {
     _getPlaylistVideos(id);
+    _getPlaylistById(id);
   }, []);
 
   return (
     <div className="playlist_videos container">
-      <h2 className="heading-secondary">Add new video</h2>
+      <AdminHeader />
+
+      <h2 className="heading-secondary"> {playlist.title} playlist</h2>
       <div className="playlist-videos-btn">
         <CreateVideoOnPlaylistModal />
         <Link
@@ -36,7 +42,7 @@ const VideosOnPlaylist = () => {
         {playlistVideos && playlistVideos.length ? (
           playlistVideos?.map((item) => {
             return (
-              <CardVideo
+              <CardVideoOnPlaylist
                 key={v4()}
                 title={item.title}
                 link={item.link.split("v=")}
@@ -57,4 +63,3 @@ const VideosOnPlaylist = () => {
 };
 
 export default VideosOnPlaylist;
-

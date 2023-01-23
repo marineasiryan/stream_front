@@ -12,6 +12,9 @@ import { VideosIdReducer } from "./videosIdReducer";
 import { PlaylistsIdReducer } from "./playlistsIdReducer";
 import { UserReducer } from "./userReducer";
 import { videoLinkReducer } from "./videoLinkReducer";
+import { VideoInfoReducer } from "./videoInfoReducer";
+import { PlaylistInfoReducer } from "./playlistInfoReducer";
+import { pathInfoReducer } from "./pathInfoReducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -26,6 +29,9 @@ const rootReducer = combineReducers({
   playlistid: PlaylistsIdReducer,
   users: UserReducer,
   videoData: videoLinkReducer,
+  videoInfo: VideoInfoReducer,
+  playlistInfo:PlaylistInfoReducer,
+  pathInfo:pathInfoReducer,
 });
 
 export default rootReducer;

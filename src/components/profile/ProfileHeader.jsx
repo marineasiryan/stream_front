@@ -4,9 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 
 const ProfileHeader = () => {
   const params = useLocation();
-  
+
   const userInfo = useSelector((state) => state?.user);
-  console.log(userInfo);
 
   return (
     <div className="tabs">
@@ -21,7 +20,7 @@ const ProfileHeader = () => {
             Account
           </Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link
             className={`nav-link text-primary text-primary--white ${
               params.pathname === "/profile/history" && "active"
@@ -39,8 +38,8 @@ const ProfileHeader = () => {
             to="/profile/likedVideos"
           >
             Liked Videos
-          </Link>
-        </li>
+          </Link> */}
+        {/* </li> */}
       </ul>
     </div>
   );

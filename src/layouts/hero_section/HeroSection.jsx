@@ -5,7 +5,6 @@ import { BiPlay } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
-  console.log("mta Hero Section");
   return (
     <>
       <div className="heroSection">
@@ -22,9 +21,10 @@ const HeroSection = () => {
               comparison at an.
             </p>
           </div>
-          <Link to={"/videoPlayer"} className="btn-hero btn-hero--main"><BiPlay/></Link>
+          <Link to={"/"} className="btn-hero btn-hero--main">
+            <BiPlay />
+          </Link>
         </div>
-       
       </div>
     </>
   );

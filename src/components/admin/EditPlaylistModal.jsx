@@ -10,12 +10,10 @@ import { useLocation } from "react-router";
 import { AddPlaylistSchema } from "../../schemas";
 
 const EditPlaylistModal = () => {
-  console.log("mta Edit playlist");
   const { auth } = useSelector((state) => ({ ...state }));
   const location = useLocation();
 
   const [preview, setPreview] = useState();
-  console.log(preview);
   const [imgFile, setImageFile] = useState(null);
   const [data, setData] = useState(null);
 
@@ -25,8 +23,6 @@ const EditPlaylistModal = () => {
         location.pathname.split("edit/")[1],
         auth.token
       );
-      console.log("playlist data", res.data);
-      console.log("playlist data image", res.data.image);
 
       setPreview(res.data.image);
       delete res.data.image;

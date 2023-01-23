@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo, useEffect, memo } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -12,13 +12,19 @@ import screenful from "screenfull";
 
 import Video from "../components/videos_section/video_play/Video";
 import About_video from "../components/videos_section/about_video/About_video";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { getHome } from "../api/videos/video";
+import useVideos from "../components/admin/useVideos";
+import useModal from "antd/lib/modal/useModal";
+// import def from "../assets/images/def.jpeg"
+import def from "../assets/images/def1.png"
+// import def from "../assets/images/def2.png"
 
 const useStyles = makeStyles((theme) => ({
   playerWrapper: {
-    width: "1400px",
-    height: "790px",
+    width: "100%",
+    height: "100%",
     position: "relative",
     // margin: "30px 0",
   },
@@ -40,7 +46,37 @@ const format = (seconds) => {
 
 let count = 0;
 
-function VideoPlayer() {
+function useHomeRecentVideo() {
+  const [recentVideos, setRecentVideos] = useState([]);
+  const handlers = useMemo(
+    () => ({
+      add: (data) => setRecentVideos(data),
+    }),
+    []
+  );
+  return [recentVideos, handlers];
+}
+
+const VideoPlayer=memo(()=> {
+  const videoData = useSelector((state) => state.videoData);
+  const auth = useSelector((state) => state?.auth);
+  const [recentVideos, { add }] = useHomeRecentVideo();
+  const location = useLocation();
+  const playlistId = location.pathname.split("videoPlayer/")[1];
+  const playlistVideos = useSelector((state) => state.playlistVideos);
+  const getHomeVidoes = async () => {
+    try {
+      const res = await getHome(8, -1, auth.token);
+
+      if (res.data) {
+        add(res.data.recentVideos);
+      }
+    } catch (err) {
+      message.error("Somthing went wrong");
+    }
+  };
+  if (videoData.isPlaylist) {
+  }
   const classes = useStyles();
 
   const [timeDisplayFormat, setTimeDisplayFormat] = React.useState("normal");
@@ -76,7 +112,12 @@ function VideoPlayer() {
     volume,
   } = state;
 
+  const[showDiv, setShowDiv] = useState(false);
+
+
   const handlePlayPause = () => {
+    console.log("aaaaaaaa");
+    setShowDiv(!showDiv);
     setState({ ...state, playing: !state.playing });
   };
 
@@ -102,7 +143,6 @@ function VideoPlayer() {
   };
 
   const handleSeekChange = (e, newValue) => {
-    console.log({ newValue });
     setState({ ...state, played: parseFloat(newValue / 100) });
   };
 
@@ -111,14 +151,13 @@ function VideoPlayer() {
   };
 
   const handleSeekMouseUp = (e, newValue) => {
-    console.log({ value: e.target });
     setState({ ...state, seeking: false });
     playerRef.current.seekTo(newValue / 100, "fraction");
   };
 
-  const handleDuration = (duration) => {
-    setState({ ...state, duration });
-  };
+  // const handleDuration = (duration) => {
+  //   setState({ ...state, duration });
+  // };
 
   const handleVolumeSeekDown = (e, newValue) => {
     setState({ ...state, seeking: false, volume: parseFloat(newValue / 100) });
@@ -136,7 +175,6 @@ function VideoPlayer() {
   };
 
   const handleMouseMove = () => {
-    // console.log("mousemove");
     controlsRef.current.style.visibility = "visible";
     count = 0;
   };
@@ -198,16 +236,19 @@ function VideoPlayer() {
       : `-${format(duration - currentTime)}`;
 
   const totalDuration = format(duration);
-  const videoData = useSelector((state) => state.videoData);
-  // console.log("videoData", videoData);
 
-  const videoDataSecondary =JSON.parse( window.localStorage.getItem("videoData"));
-  // console.log("videolink22", videoDataSecondary);
+  const videoDataSecondary = useMemo(() =>
+    JSON.parse(window.localStorage.getItem("videoData"))
+  );
+  const { _getPlaylistVideos } = useVideos();
 
+  useEffect(() => {
+    getHomeVidoes();
+    videoData.isPlaylist && _getPlaylistVideos(playlistId);
+    window.scrollTo(0, 150);
+  }, [videoData.isPlaylist,location.pathname]);
   // const title = useSelector((state) => state.title);
   // const title2 = window.localStorage.getItem("title");
-
-  
   return (
     <div className="video-player">
       <div className="playlsit-title">
@@ -216,7 +257,7 @@ function VideoPlayer() {
           <BiArrowBack />{" "}
         </Link>
         <h1 className=" heading-secondary heading-secondary--white">
-          Playlist Name
+          {videoData.topic}
         </h1>
       </div>
       <Container maxWidth="md">
@@ -226,6 +267,10 @@ function VideoPlayer() {
           ref={playerContainerRef}
           className={classes.playerWrapper}
         >
+        {showDiv ? <div className="showDiv" > 
+        <img src={def}/>
+        </div>:null}
+
           <ReactPlayer
             ref={playerRef}
             width="100%"
@@ -254,7 +299,7 @@ function VideoPlayer() {
             onSeek={handleSeekChange}
             onSeekMouseDown={handleSeekMouseDown}
             onSeekMouseUp={handleSeekMouseUp}
-            onDuration={handleDuration}
+            // onDuration={handleDuration}
             onRewind={handleRewind}
             onPlayPause={handlePlayPause}
             onFastForward={handleFastForward}
@@ -278,6 +323,7 @@ function VideoPlayer() {
         <Grid container style={{ marginTop: 20 }} spacing={3}>
           {bookmarks.map((bookmark, index) => (
             <Grid key={index} item>
+
               <Paper
                 onClick={() => {
                   playerRef.current.seekTo(bookmark.time);
@@ -299,10 +345,12 @@ function VideoPlayer() {
         </Grid>
       </Container>
 
-      <About_video videoData ={videoData}
-      videoDataSecondary={videoDataSecondary}
-       />
+      <About_video
+        data={videoData.isPlaylist ? playlistVideos : recentVideos}
+        videoData={videoData}
+        videoDataSecondary={videoDataSecondary}
+      />
     </div>
   );
-}
-export default VideoPlayer;
+})
+export default memo(VideoPlayer);

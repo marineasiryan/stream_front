@@ -45,6 +45,7 @@
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 60px;
   }
   @include respond(desktop-L) {
     padding: 11px 100px;

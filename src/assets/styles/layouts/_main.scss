@@ -1,9 +1,5 @@
 .main {
-  // .aaa{
-  //   width: 80%;
-  //   height: 40px;
-  //   background-color: $color-primary;
-  // }
+ 
   padding: 20px 190px;
   
   @include respond(desktop-L) {
@@ -35,7 +31,7 @@
     padding: 10px;
     // left: 0;
     // right: 0;
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 30px;
     font-weight: bold;
   

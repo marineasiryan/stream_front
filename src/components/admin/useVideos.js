@@ -15,6 +15,9 @@ import {
   deleteSelectedVideos,
   addPlaylistToPath,
   deletePlaylistFromPath,
+  getVideoById,
+  getPlaylistById,
+  getPathById,
 } from "../../api/videos/video";
 
 const useVideos = () => {
@@ -34,7 +37,6 @@ const useVideos = () => {
   };
 
   const _getPlaylistVideos = async (id) => {
-    console.log("_getPlaylistVideos",id);
     try {
       const res = await getPlaylistVideos(auth.token, id);
       dispatch({
@@ -42,7 +44,7 @@ const useVideos = () => {
         payload: res.data,
       });
     } catch (err) {
-      message.error("Something went wrong!");
+      console.log(err.message);
     }
   };
 
@@ -59,10 +61,8 @@ const useVideos = () => {
   };
 
   const _getPathPlaylists = async (id) => {
-    console.log("_getPathPlaylists",id);
     try {
       const res = await getPathPlaylists(auth.token, id);
-      console.log("aa",res);
       dispatch({
         type: "SET_ALL_PATH_PLAYLISTS",
         payload: res.data,
@@ -99,7 +99,6 @@ const useVideos = () => {
 
   const _deleteSelectedVideos = useCallback(async (data) => {
     try {
-      console.log(data);
       await deleteSelectedVideos(auth.token, data);
       const result = await getAllVideos(auth.token);
       dispatch({
@@ -125,7 +124,6 @@ const useVideos = () => {
   // }, []);
 
   const deletePlaylistVideosHandler = useCallback(async (data, playlistId) => {
-    console.log("dataaaa", data);
     try {
       await deleteVideoFromPlaylist(playlistId, auth.token, data);
       const result = await getPlaylistVideos(auth.token, playlistId);
@@ -165,7 +163,6 @@ const useVideos = () => {
   }, []);
 
   const deletePathPlaylistsHandler = useCallback(async (data, pathId) => {
-    console.log("dataaaa", data);
     try {
       await deletePlaylistFromPath(pathId, auth.token, data);
       const result = await getPathPlaylists(auth.token, pathId);
@@ -178,11 +175,13 @@ const useVideos = () => {
     }
   }, []);
 
-
   const addExistingVideoToPlaylist = useCallback(async (data, playlistId) => {
     try {
       await addVideoToPlaylist(playlistId, auth.token, data);
-   
+      dispatch({
+        type: "RESET_VIDEO_ID",
+        payload: {},
+      });
     } catch (error) {
       message.error(error);
     }
@@ -190,12 +189,57 @@ const useVideos = () => {
 
   const addExistingPlaylistToPath = useCallback(async (data, pathId) => {
     try {
-      // console.log(data);
-      const a= await addPlaylistToPath(pathId, auth.token, data);
-      console.log(a);
-   
+      await addPlaylistToPath(pathId, auth.token, data);
+      dispatch({
+        type:"RESET_PLAYLIST_ID",
+        payload:{},
+      });
     } catch (error) {
       message.error(error);
+    }
+  }, []);
+
+  const _getVideoById = useCallback(async (data, id) => {
+    try {
+      const res = await getVideoById(data, id, auth.token);
+      if (res.data) {
+        dispatch({
+          type: "SET_VIDEO",
+          payload: res.data,
+        });
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  }, []);
+
+  const _getPlaylistById = useCallback(async (playlistId) => {
+    console.log("playlist id", playlistId);
+    try {
+      const res = await getPlaylistById(playlistId, auth.token);
+      if (res.data) {
+        dispatch({
+          type: "SET_PLAYLIST",
+          payload: res.data,
+        });
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  }, []);
+
+  const _getPathById = useCallback(async (pathId) => {
+    console.log("pathId id", pathId);
+    try {
+      const res = await getPathById(pathId, auth.token);
+      if (res.data) {
+        dispatch({
+          type: "SET_PATH",
+          payload: res.data,
+        });
+      }
+    } catch (error) {
+      message.error(error.message);
     }
   }, []);
 
@@ -205,6 +249,9 @@ const useVideos = () => {
     getPlayList,
     _getPlaylistVideos,
     _getPathPlaylists,
+    _getPlaylistById,
+    _getVideoById,
+    _getPathById,
     // deletePlaylistVideoHandler,
     deletePlaylistVideosHandler,
     deletePathHandler,

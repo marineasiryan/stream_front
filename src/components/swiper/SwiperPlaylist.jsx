@@ -8,15 +8,13 @@ import { Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 import MainCardPlaylist from "../helper/cards/MainCardPlaylist";
 
-const SwiperPlaylist = () => {
+const SwiperPlaylist = ({ videos, title, description, id, data }) => {
   return (
     <div className="main-playlists">
       <div className="playlist-title">
-        <h2 className="heading-secondary heading-secondary--white">
-          Playlist Name
-        </h2>
+        <h2 className="heading-secondary heading-secondary--white">{title}</h2>
         <Link
-          to={"/singlePlaylist"}
+          to={`/singlePlaylist/${id}`}
           className="text-secondary text-secondary--gray"
         >
           Explore All {">"}
@@ -33,18 +31,30 @@ const SwiperPlaylist = () => {
         }}
         navigation={true}
         // loopFillGroupWithBlank={true}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        //   dynamicBullets: true,
+        // }}
         modules={[Pagination, Navigation]}
       >
-        {[...Array(14)].map((i) => {
-          return (
-            <SwiperSlide key={v4()}>
-              <MainCardPlaylist title="The Magic of Academy Whiteboards | A Picsart Academy Short Fil" />
-            </SwiperSlide>
-          );
-        })}
+        {videos &&
+          videos.length &&
+          videos.map((item) => {
+            return (
+              <SwiperSlide key={v4()}>
+                <MainCardPlaylist
+                  id={item._id}
+                  title={item.title}
+                  link={item.link.split("v=")}
+                  videoLink={item.link}
+                  description={item.description}
+                  playlistId={id}
+                  topic={item.topic}
+                  materials={item.materials}
+                />
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
     </div>
   );

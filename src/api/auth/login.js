@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const login = async (user) =>
-  await axios.post(`${import.meta.env.VITE_APP_API}/auth/signin`, user);
+  await axios.post(`${import.meta.env.VITE_APP_API}/api/auth/signin`, user);
 
 export const parseJwt = (token) => {
   let base64Url = token.split(".")[1];

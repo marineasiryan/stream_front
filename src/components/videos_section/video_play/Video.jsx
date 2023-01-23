@@ -104,7 +104,7 @@ const Video = forwardRef(
       onSeek,
       onSeekMouseDown,
       onSeekMouseUp,
-      onDuration,
+      // onDuration,
       onRewind,
       onPlayPause,
       onFastForward,
@@ -139,6 +139,7 @@ const Video = forwardRef(
 
     return (
       <div ref={ref} className={classes.controlsWrapper}>
+
         <Grid
           container
           direction="column"
@@ -168,6 +169,7 @@ const Video = forwardRef(
               className={classes.controlIcons}
               aria-label="play"
             >
+
               {playing ? (
                 <PauseIcon fontSize="inherit" />
               ) : (
@@ -201,7 +203,7 @@ const Video = forwardRef(
                 // onChange={onSeek}
                 onMouseDown={onSeekMouseDown}
                 onChangeCommitted={onSeekMouseUp}
-                onDuration={onDuration}
+                // onDuration={onDuration}
               />
             </Grid>
 
@@ -311,7 +313,7 @@ Video.propTypes = {
   onSeek: PropTypes.func,
   onSeekMouseDown: PropTypes.func,
   onSeekMouseUp: PropTypes.func,
-  onDuration: PropTypes.func,
+  // onDuration: PropTypes.func,
   onRewind: PropTypes.func,
   onPlayPause: PropTypes.func,
   onFastForward: PropTypes.func,
